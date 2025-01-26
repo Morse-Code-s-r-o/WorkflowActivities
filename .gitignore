@@ -1,0 +1,45 @@
+# Ignore build directories
+bin/
+obj/
+
+# Ignore Visual Studio temporary files
+.vs/
+.vscode/
+.idea/
+
+# Ignore NuGet packages
+*.nupkg
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Ignore the output folder for packaged solutions
+/dist/
+
+# Ignore compiled files from source code
+*.dll
+*.exe
+*.pdb
+
+# Ignore Microsoft Dynamics 365 Plugin Registration Tool output
+PluginRegistrationTool/
+
+# Ignore app data for Power Platform or Dynamics CRM
+*.crm
+
+# Ignore solution export file, if any
+*.zip
+
+# Ignore temp or log files
+*.log
+*.tmp
+
+# Ignore files created by Visual Studio during builds or debugging
+*.psess
+*.vspx
+
+# Ignore local environment configuration files
+.env
