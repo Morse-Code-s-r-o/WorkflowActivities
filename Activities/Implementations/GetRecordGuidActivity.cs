@@ -10,7 +10,7 @@ using System.Web;
 
 namespace WorkflowActivities.Implementations
 {
-    public class GetRecordGuid : PagedWorkflowActivityBase
+    public class GetRecordGuid : WorkflowActivityBase
     {
         [Input("Dynamic URL")]
         public InArgument<string> DynamicUrl { get; set; }
@@ -20,6 +20,9 @@ namespace WorkflowActivities.Implementations
 
         [Output("Record GUID")]
         public OutArgument<string> RecordGuid { get; set; }
+
+        [Input("FetchXML")]
+        public InArgument<string> FetchXMLInput { get; set; }
 
         protected override void ExecuteWorkflowLogic(CodeActivityContext context)
         {

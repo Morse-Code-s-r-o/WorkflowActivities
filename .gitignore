@@ -43,3 +43,6 @@ PluginRegistrationTool/
 
 # Ignore local environment configuration files
 .env
+*.snk
+*.txt
+*.htm
