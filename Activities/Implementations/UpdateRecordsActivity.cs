@@ -45,6 +45,8 @@ namespace WorkflowActivities.Implementations
         [Input("UpdateValue")]
         public InArgument<string> UpdateValue { get; set; }
 
+        public UpdateRecordsActivity() : base(new PagedQueryProcessor()) { }
+
         public UpdateRecordsActivity(IPagedQueryProcessor queryProcessor = null) : base(queryProcessor) { }
 
         protected override void ExecuteWorkflowLogic(CodeActivityContext context)
