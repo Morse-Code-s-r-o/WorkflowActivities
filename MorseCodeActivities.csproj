@@ -8,14 +8,14 @@
     <Copyright>Copyright © 2025 Morse &amp; Code s.r.o. All rights reserved.</Copyright>
     <AssemblyName>MorseCodeActivities</AssemblyName>
     <Title>Morse &amp; Code Activities</Title>
-    <Version>1.1.0.0</Version>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.2.0.2</Version>
+    <AssemblyVersion>1.2.0.2</AssemblyVersion>
+    <FileVersion>1.2.0.2</FileVersion>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>  
   <ItemGroup>
-      <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="8.2.0.0" />
-      <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="8.2.0.0" />
-      <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="8.2.0.1" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="8.2.0.0" />
+    <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="8.2.0.0" />
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="8.2.0.1" />
   </ItemGroup>
 </Project>

@@ -142,12 +142,7 @@ namespace WorkflowActivities.Implementations
                     return;
                 }
 
-                var fetchToQueryRequest = new FetchXmlToQueryExpressionRequest { FetchXml = fetchXML };
-                var fetchToQueryResponse = (FetchXmlToQueryExpressionResponse)service.Execute(fetchToQueryRequest);
-                var query = fetchToQueryResponse.Query;
-                query.TopCount = 1;
-
-                var result = service.RetrieveMultiple(query);
+                var result = service.RetrieveMultiple(new FetchExpression(fetchXML));
 
                 if (result.Entities.Count > 0)
                 {
