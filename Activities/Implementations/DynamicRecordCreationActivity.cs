@@ -46,6 +46,8 @@ namespace WorkflowActivities.Implementations
         [Input("ReferenceIdField")]
         public InArgument<string> ReferenceIdField { get; set; }
 
+        public DynamicRecordCreationActivity() : base(new PagedQueryProcessor()) { }
+        
         public DynamicRecordCreationActivity(IPagedQueryProcessor queryProcessor = null) : base(queryProcessor) { }
 
         protected override void ExecuteWorkflowLogic(CodeActivityContext context)

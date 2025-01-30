@@ -26,19 +26,25 @@
 using System;
 using System.Activities;
 using System.Linq;
+using System.ComponentModel;
 using Microsoft.Xrm.Sdk.Workflow;
 using WorkflowActivities.Base;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Sdk.Metadata;
+using System.Configuration;
 
 namespace WorkflowActivities.Implementations
 {
+    [SettingsGroupName("Data")]
+    [Description("Counts Records Based on FetchXML")]
     public class CountRecordsActivity : PagedWorkflowActivityBase
     {
         [Output("RecordCount")]
         public OutArgument<int> RecordCount { get; set; }
+
+        public CountRecordsActivity() : base(new PagedQueryProcessor()) { }
 
         public CountRecordsActivity(IPagedQueryProcessor queryProcessor = null) : base(queryProcessor) { }
 

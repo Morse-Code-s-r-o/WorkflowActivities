@@ -42,6 +42,8 @@ namespace WorkflowActivities.Implementations
         [RequiredArgument]
         public InArgument<EntityReference> Workflow { get; set; }
 
+        public ExecuteWorkflowActivity() : base(new PagedQueryProcessor()) { }
+
         public ExecuteWorkflowActivity(IPagedQueryProcessor queryProcessor = null) : base(queryProcessor) { }
 
         protected override void ExecuteWorkflowLogic(CodeActivityContext context)
