@@ -57,9 +57,17 @@ namespace WorkflowActivities.Implementations
 
         private void HandleCurrentRecord(CodeActivityContext context, IWorkflowContext workflowContext)
         {
-            string currentGuid = workflowContext.PrimaryEntityId.ToString();
-            SetReturnValues(context, true, "Current record GUID retrieved");
-            RecordGuid.Set(context, currentGuid);
+            try 
+            {
+                string currentGuid = workflowContext.PrimaryEntityId.ToString();
+                RecordGuid.Set(context, currentGuid);
+                SetReturnValues(context, true, "");
+            }
+            catch (Exception ex) 
+            {
+                RecordGuid.Set(context, string.Empty);
+                SetReturnValues(context, false, $"Error getting current record GUID: {ex.Message}");
+            }
         }
 
         private void HandleUrlGuid(CodeActivityContext context, string url)
