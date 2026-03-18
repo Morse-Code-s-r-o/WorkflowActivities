@@ -175,7 +175,7 @@ public class BulkRecordCreationActivity : CodeActivity
                             if (sourceRecord.Contains(sourceField))
                             {
                                 object sourceValue = sourceRecord[sourceField];
-                                SetTargetFieldValue(targetRecord, targetField, sourceValue);
+                                SetTargetFieldValue(targetRecord, targetField, sourceValue, sourceRecord.LogicalName);
                             }
                         }
                         else if (mappingDef.MappingType == MappingType.StaticValue)
@@ -241,7 +241,7 @@ public class BulkRecordCreationActivity : CodeActivity
         }
     }
 
-    private void SetTargetFieldValue(Entity targetRecord, string targetField, object sourceValue)
+    private void SetTargetFieldValue(Entity targetRecord, string targetField, object sourceValue, string sourceEntityLogicalName = null)
     {
         // Handle different types of fields
         if (sourceValue is EntityReference sourceRef)
@@ -267,9 +267,15 @@ public class BulkRecordCreationActivity : CodeActivity
         }
         else if (sourceValue is Guid sourceGuid)
         {
-            // For direct Guid values, create EntityReference using the account entity type
-            // since we know this is an account lookup
-            targetRecord[targetField] = new EntityReference("account", sourceGuid);
+            // Avoid hardcoded target entity names; infer from source entity when available.
+            if (!string.IsNullOrWhiteSpace(sourceEntityLogicalName))
+            {
+                targetRecord[targetField] = new EntityReference(sourceEntityLogicalName, sourceGuid);
+            }
+            else
+            {
+                targetRecord[targetField] = sourceGuid;
+            }
         }
         else if (sourceValue is Microsoft.Xrm.Sdk.Money moneyValue)
         {
